@@ -5,28 +5,29 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Servlet1")
-public class Servlet1 extends HttpServlet {
-	
- 
+@WebServlet("/Serv04")
+//@WebServlet(name="me",urlPatterns={"/Serv04"},initParams=@WebInitParam(name="hr", value="Ram")
+public class Serv04 extends HttpServlet {
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
 		ServletConfig c=getServletConfig();
-		String hrName=c.getInitParameter("Geeta");
+		String hrName=c.getInitParameter("hr");
 		
-		out.println("A paragraph is a unit of writing that consists of "
-				+hrName+ "one or more sentences "+hrName+" that relate to the same "
-				+ "topic. "+hrName+" Paragraphs are essential "+hrName+" for organizing"
-				+ " long "
-				+ "pieces of writing such as novels, papers, or even emails.");
-		
+		out.println("Welcome Serv04<br><br>"+
+	 "A paragraph is a series of sentences that are "
+	 +hrName+ "  organized and coherent, " +hrName+" and are all related"
+	 + " to a single topic. "+hrName+"  Almost every piece of writing"
+	 + " you do that is longer than a few sentences "
+	 + "should be  "+hrName+" organized into paragraphs.");
 		
 	}
 
